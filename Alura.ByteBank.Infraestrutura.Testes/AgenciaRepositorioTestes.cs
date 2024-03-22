@@ -6,15 +6,20 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Alura.ByteBank.Infraestrutura.Testes
 {
     public class AgenciaRepositorioTestes
     {
         private IAgenciaRepositorio _repositorio;
+        public ITestOutputHelper SaidaConsole { get; set; }
 
-        public AgenciaRepositorioTestes()
+        public AgenciaRepositorioTestes(ITestOutputHelper _saidaConsole)
         {
+            SaidaConsole = _saidaConsole;
+            SaidaConsole.WriteLine("Construtor executado");
+
             _repositorio = new AgenciaRepositorio();
         }
 
